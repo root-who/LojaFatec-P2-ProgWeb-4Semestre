@@ -1,0 +1,12 @@
+.titulo-cadastro{
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.btn-cadastro{
+    margin-left: 70%;
+}
+
+.row{
+    justify-content: end;
+}

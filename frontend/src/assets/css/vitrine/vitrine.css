@@ -1,0 +1,30 @@
+.conteudo-principal{
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 6%;
+    padding-right: 6%;
+    justify-content: space-around;
+}
+
+.conteudo-produto{
+    width: 40%;
+    margin-bottom: 2rem;
+}
+
+.card-body{
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+.produto-img{
+    margin: 2rem auto;
+}
+.produto-preco{
+    margin-left: 1.5rem;
+    font-weight: 500;
+    font-size: 1.7rem;
+}
+
+.btn-comprar{
+    margin-left: 40%;
+}
