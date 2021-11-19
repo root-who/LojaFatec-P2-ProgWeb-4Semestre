@@ -1,30 +1,34 @@
-
+import React from "react";
 import '../../assets/css/vitrine/vitrine.css'
+import Produto from '../../components/produto';
 
-function VitrinePage(){
+function VitrinePage() {
 
-
-    return(
+    const [produtos] = React.useState([
+    {
+        titulo:"Nike air force",
+        urlImg:"https://authenticfeet.vteximg.com.br/arquivos/ids/245592-600-600/Tenis-Nike-Air-Force-1-Fontaka-Feminino-Rosa.jpg",
+        valor:"850.00",
+        destaque:"Nike rosa lindo",
+        descritivo:"muitolindo blabla bla esse eh o descritivossssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss"
+    },
+    {
+        titulo:"Nike air max",
+        urlImg:"https://authenticfeet.vteximg.com.br/arquivos/ids/247351-600-600/Tenis-Nike-Air-Force-107-Lx-Feminino-Branco.jpg",
+        valor:"650.00",
+        destaque:"Nike branco lindo",
+        descritivo:"aaaaaaaaaaaaaaaaaaaaaaaaatsssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssivossssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss"
+    }])
+    return (
         <>
-        <main class="conteudo-principal">
-        <div class="conteudo-produto">  
-            <div class="card">
-                <div class="card-header alert-primary">Tenis Nike Air Max 90</div>
-                <div class="card-body">
-                    <div class="col-7">
-                        <img class="img-fluid produto-img" alt="" src=""/>
-                        <p class="card-text produto-preco">
-                                R$ 799,00
-                        </p>
-                    </div>
-                    <div class="col-4">
-                        <button class="btn btn-secondary btn-comprar">Comprar</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </main>
-        </> 
+            <main class="conteudo-principal">
+                {produtos.map((value) => {
+                    return (
+                        <Produto value={value}/>
+                    )
+                })}
+            </main>
+        </>
     )
 }
 

@@ -1,12 +1,12 @@
 import React from 'react';
 
-function InputFormCadastro({labelText, inputClassName, errorMessage, onChangeValue, onBlurInput, inputType}) {
+function InputFormCadastro({labelText, inputClassName, errorMessage, onChangeValue, onBlurInput, inputType, inputSize}) {
     
     return (
 
         
         <>
-            <div className="col-md-6">
+            <div className={"col-md-"+ inputSize}>
                 <label className="form-label">{labelText}</label>
                 <div className="input-group has-validation">
                     <span className="input-group-text" id="inputGroupPrepend">*</span>

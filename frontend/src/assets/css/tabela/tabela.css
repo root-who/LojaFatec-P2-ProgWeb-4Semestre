@@ -1,0 +1,83 @@
+.tabela__container{
+    padding:0 6%;
+    margin: 2rem auto;
+    width: 100%;
+}
+.tableHeader{
+    display: flex;
+    height: 40px;
+}
+
+.tabelaBody{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.tabelaLinha{
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.tabelaConteudo1{
+    margin-bottom: 0;
+    text-align: center;
+    width: 100%;
+}
+
+.tabelaConteudo2{
+    margin-bottom: 0;
+    width: 100%;
+}
+
+.tabelaConteudo3{
+    margin-bottom: 0;
+    padding-right: 2rem;
+    width: 100%;
+}
+
+.tabelaColuna1{
+    width: 15%;
+
+}
+
+.tabelaColuna2{
+    text-align: end;
+    width: 35%;
+
+}
+
+.tabelaColuna3{
+    width: 50%;
+    word-wrap: break-word;
+}
+
+@media  screen and (max-width: 750px){
+    .tabela__container{
+        padding:0 0;
+    }
+}
+
+@media  screen and (max-width: 680px){
+    .tabelaColuna1{
+        width: 25%;
+
+    }
+
+    .tabelaColuna2{
+
+        width: 25%;
+
+    }
+
+    .tabelaColuna3{
+        width: 50%;
+    }
+}
+
+@media  screen and (max-width: 430px){
+    .tabela__container{
+        overflow: scroll;
+    }
+}

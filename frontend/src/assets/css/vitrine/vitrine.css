@@ -13,11 +13,12 @@
 
 .card-body{
     display: flex;
-    align-items: flex-end;
+    
     justify-content: space-between;
 }
 .produto-img{
     margin: 2rem auto;
+    max-height: 200px;
 }
 .produto-preco{
     margin-left: 1.5rem;
@@ -25,6 +26,37 @@
     font-size: 1.7rem;
 }
 
-.btn-comprar{
-    margin-left: 40%;
+
+
+@media  screen and (max-width: 830px){
+    .conteudo-produto{
+        width: 65%;
+        margin-bottom: 2rem;
+    }
+
+    .conteudo-principal{
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+@media  screen and (max-width: 630px){
+    .conteudo-produto{
+        width: 75%;
+        margin-bottom: 2rem;
+    }
+}
+
+@media  screen and (max-width: 530px){
+    .conteudo-produto{
+        width: 90%;
+        margin-bottom: 2rem;
+    }
+}
+
+@media  screen and (max-width: 430px){
+.conteudo-produto{
+        width: 100%;
+        margin-bottom: 2rem;
+    }
 }

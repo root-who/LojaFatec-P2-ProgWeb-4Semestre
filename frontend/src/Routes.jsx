@@ -52,7 +52,7 @@ const RoutesApp = ()=> {
                                             <LoginPage/>
                                             }/>
 
-                <Route exact path="/detalhe" element={
+                <Route exact path="/detalheproduto" element={
                                             <DetalheProduto/>
                                             }/>
 

@@ -2,18 +2,29 @@
 class validaForm{
 
 // eslint-disable-next-line
-static validacao(errors){
-    var erro = false;
+static validacaoCadastro(errors){
+    var erro = true;
+    if(errors.nome.hasErros) erro = false ; 
+    if(errors.cpf.hasErros) erro = false ;
+    if(errors.senha.hasErros)erro = false ;
+    if(errors.confirmaSenha.hasErros) erro = false ;
+    if(errors.endereco.hasErros) erro = false ;
+    if(errors.email.hasErros) erro = false ;
+    if(errors.cpf.hasErros) erro = false ;
+    if(errors.celular.hasErros) erro = false ;
+    return erro;
+}
 
-    errors.nome.hasErros ? erro = true : erro = erro;
-    errors.cpf.hasErros ? erro = true : erro = erro;
+static validacaoLogin(errors){
+    var erro = false;
+    errors.email.hasErros ? erro = true : erro = erro;  
     errors.senha.hasErros ? erro = true : erro = erro;
-    errors.confirmaSenha.hasErros ? erro = true : erro = erro;
-    errors.endereco.hasErros ? erro = true : erro = erro;
-    errors.email.hasErros ? erro = true : erro = erro;
-    errors.cpf.hasErros ? erro = true : erro = erro;
-    errors.celular.hasErros ? erro = true : erro = erro;
-    console.log(erro)
+    return erro;
+}
+
+static validacaoEsqueci(errors){
+    var erro = false;
+    errors.email.hasErros ? erro = true : erro = erro;  
     return erro;
 }
 
