@@ -9,6 +9,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class ProdutosDaCesta {
 
@@ -17,6 +19,7 @@ public class ProdutosDaCesta {
 	private Long id;
 	private Long quantidade;
 	private BigDecimal valorUnitario;
+	@JsonIgnore
 	@ManyToOne(fetch = FetchType.LAZY)
 	private Cesta cesta;
 	@ManyToOne

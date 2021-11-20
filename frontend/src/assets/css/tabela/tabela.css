@@ -17,7 +17,7 @@
 .tabelaLinha{
     display: flex;
     width: 100%;
-    flex-wrap: wrap;
+    flex-wrap: wrap;    
 }
 
 .tabelaConteudo1{
@@ -33,24 +33,49 @@
 
 .tabelaConteudo3{
     margin-bottom: 0;
-    padding-right: 2rem;
+    padding-right: 3rem;
+    width: 100%;
+}
+
+.tabelaConteudo_5{
+    margin-bottom: 0;
     width: 100%;
 }
 
 .tabelaColuna1{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
     width: 15%;
 
 }
 
 .tabelaColuna2{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
     text-align: end;
-    width: 35%;
+    width: 30%;
 
 }
 
 .tabelaColuna3{
-    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 45%;
     word-wrap: break-word;
+}
+
+.tabelaLinha .tabelaColuna_5{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 0.2rem 0;
+    width: 5%;
+    flex-grow: 1;
+    text-align: end;
+    
 }
 
 @media  screen and (max-width: 750px){
@@ -72,7 +97,7 @@
     }
 
     .tabelaColuna3{
-        width: 50%;
+        width: 40%;
     }
 }
 

@@ -4,12 +4,16 @@ import React from 'react';
 import '../../assets/css/login/login.css'
 import InputFormCadastro from '../../components/inputFormCadastro';
 import validaForm from '../../util/validacoes';
+import axios from 'axios';
+import API_URL from '../../util/API/apiRequest';
 function LoginPage() {
     const [senha, setSenha] = React.useState("");
     const [email, setEmail] = React.useState("");
+    const [user, setUser] = React.useState({});
     const [alertMessaage, setAlertMessage] = React.useState({
         alertView: false,
         text: "",
+        hasError: false,
         color: ""
     });
     const [errors, setErrors] = React.useState({
@@ -26,12 +30,31 @@ function LoginPage() {
             alertView:true
             })
         }else{
-            
-            setAlertMessage({...alertMessaage, 
-            text:"Cadastro realizado com sucesso!", 
-            color: "success",
-            alertView:true
-            })  
+            axios.request({
+                    method: 'post',
+                    url: API_URL + '/cliente/login',
+                    data: {
+                        "senha" : senha ,
+                        "email" : email,
+                    }
+                }).then((response)=>{
+                     setAlertMessage({...alertMessaage,
+                        text: response.data.erro.errorText,
+                        color:  response.data.erro.color,
+                        hasError: response.data.erro.hasError,
+                        alertView: true})
+                    if(!alertMessaage.hasError){
+                        console.log(response.data)
+                        setUser({...user, nome: response.data.cliente.nome, id: response.data.cliente.id})
+                        localStorage.setItem('user', JSON.stringify({nome: response.data.cliente.nome, id: response.data.cliente.id, cestaId : response.data.cestaId}));
+                    }     
+                }).catch(()=>{
+                    setAlertMessage({...alertMessaage,
+                        text:"Erro na conexão tente novamente mais tarde!",
+                        color: "warning",
+                        alertView:true
+                        })
+                }) 
         }
     }
 

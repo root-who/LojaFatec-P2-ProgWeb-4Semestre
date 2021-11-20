@@ -9,8 +9,7 @@ function TabelaHeader({headers}) {
                 <tr className="tabelaLinha">
                     {
                         headers.map((value, index)=>{
-                            console.log(value.nome)
-                            return <TabelaColuna value={value.nome}  size={value.size}  type={"header"}/>
+                            return <TabelaColuna key={index} value={value.nome}  size={value.size}  type={"header"}/>
                         })
                     } 
                 </tr>

@@ -1,32 +1,43 @@
+import axios from "axios";
 import React from "react";
 import '../../assets/css/vitrine/vitrine.css'
 import Produto from '../../components/produto';
+import API_URL from "../../util/API/apiRequest";
 
 function VitrinePage() {
 
-    const [produtos] = React.useState([
-    {
-        titulo:"Nike air force",
-        urlImg:"https://authenticfeet.vteximg.com.br/arquivos/ids/245592-600-600/Tenis-Nike-Air-Force-1-Fontaka-Feminino-Rosa.jpg",
-        valor:"850.00",
-        destaque:"Nike rosa lindo",
-        descritivo:"muitolindo blabla bla esse eh o descritivossssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss"
-    },
-    {
-        titulo:"Nike air max",
-        urlImg:"https://authenticfeet.vteximg.com.br/arquivos/ids/247351-600-600/Tenis-Nike-Air-Force-107-Lx-Feminino-Branco.jpg",
-        valor:"650.00",
-        destaque:"Nike branco lindo",
-        descritivo:"aaaaaaaaaaaaaaaaaaaaaaaaatsssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssivossssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss"
-    }])
+    const [produtos, setProdutos] = React.useState([])
+
+    React.useEffect(()=>{
+        if(JSON.parse(localStorage.getItem('produtos')) !== null){
+            setProdutos(...produtos, JSON.parse(localStorage.getItem('produtos')))
+        }else{
+             axios.request({
+                    method: 'GET',
+                    url: API_URL + '/produtos/todos'
+                    }).then((request)=>{
+                        setProdutos(request.data)
+                        console.log(request.data)
+                        localStorage.setItem('produtos', JSON.stringify(request.data));
+                    })
+        }
+        
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [])
+
+
+
     return (
         <>
-            <main class="conteudo-principal">
-                {produtos.map((value) => {
-                    return (
-                        <Produto value={value}/>
-                    )
-                })}
+            <main className="conteudo-principal">
+                { 
+                        produtos.map((value, index) => {
+                            return (
+                                <Produto key={index} value={value}/>
+                            )
+                        })
+                }
+                
             </main>
         </>
     )

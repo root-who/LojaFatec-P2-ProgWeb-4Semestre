@@ -1,6 +1,6 @@
 import React from 'react';
 
-function TabelaColuna({type, value, size}){
+function TabelaColuna({type, value, size, element,onClick}){
     
     function headerOrLine(type){
         if(type === "header"){
@@ -8,6 +8,9 @@ function TabelaColuna({type, value, size}){
         }
         if(type === "line"){
             return <td className={"tabelaColuna"+size}><p className={"tabelaConteudo"+size}>{ size === "2" ? "R$ " + value : value}</p></td>
+        }
+        if(type === "icon"){
+            return <td onClick={onClick} className={"tabelaColuna"+size}><p className={"tabelaConteudo"+size}>{element}</p></td>
         }
     }
 

@@ -2,6 +2,7 @@ package com.br.fatec.lojaFatec.entitys;
 
 import java.math.BigDecimal;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -16,10 +17,10 @@ public class Produto {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String titulo;
+	@Column(length=1500)
 	private String descritivo;
 	private BigDecimal valor;
 	private String destaque;
-	private Long quantidade;
 	private String categoria;
 	private String urlImg;
 
@@ -30,12 +31,11 @@ public class Produto {
 	
 	public Produto(String titulo, String descritivo,
 				   BigDecimal valor, String destaque,
-				   Long quantidade, String categoria, String urlImg){
+				    String categoria, String urlImg){
 		this.titulo = titulo;
 		this.descritivo = descritivo;
 		this.valor = valor;
 		this.destaque = destaque;
-		this.quantidade = quantidade;
 		this.categoria = categoria;
 		this.urlImg = urlImg;
 	}
@@ -62,10 +62,6 @@ public class Produto {
 
 	public String getDestaque() {
 		return destaque;
-	}
-
-	public Long getQuantidade() {
-		return quantidade;
 	}
 
 	public String getCategoria() {

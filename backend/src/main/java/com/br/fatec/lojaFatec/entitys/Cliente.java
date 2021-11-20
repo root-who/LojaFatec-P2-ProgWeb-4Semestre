@@ -18,9 +18,15 @@ public class Cliente {
 	private String documento;
 	private String telefone;
 
+	
 
 	public Cliente() {
 
+	}
+
+	public Cliente(Long id, String nome) {
+		this.nome = nome;
+		this.id = id;
 	}
 
 	public Cliente(String nome, String email, String senha, String documento, String telefone) {

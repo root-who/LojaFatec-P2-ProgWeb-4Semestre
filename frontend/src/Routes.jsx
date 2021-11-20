@@ -8,36 +8,26 @@ import DetalheProduto from './pages/produtoDetalhe';
 import CestaPage from './pages/cesta';
 import EsqueciSenhaPage from './pages/esqueciSenha';
 import HeaderComponent from './components/header';
+import FooterComponent from './components/footer';
+//import {useNavigate} from 'react-router-dom'
 // import axios from 'axios';
 
 
 
 
 const RoutesApp = ()=> {
-    // eslint-disable-next-line 
-    const [user, setUser] = React.useState({data: JSON.parse(localStorage.getItem('user'))});
 
-// eslint-disable-next-line 
-    function isAutenticated(){
-        if(user.data === null || user.data === "") return false;
-        else return true;
-    }
+    // const redirect = useNavigate();
 
-    // eslint-disable-next-line 
-    function logout(){
-            localStorage.removeItem('user');
-            console.log("funfou")  
-        }
-
-    // eslint-disable-next-line 
-    function login(){
-        setUser({...user, data: JSON.parse(localStorage.getItem('user'))})
-        console.log("logou")
+    function redirectLog(logout){
+        // if(logout){
+        //     redirect("/");
+        // }else redirect("/login");
     }
     
     return(
         <>
-        <HeaderComponent/>
+        <HeaderComponent redirect={redirectLog}/>
         <BrowserRouter>
             <Routes>
                 <Route exact path="/" element={
@@ -65,6 +55,7 @@ const RoutesApp = ()=> {
                                                     }/>
             </Routes>
         </BrowserRouter>
+        <FooterComponent/>
         </>
     )
 

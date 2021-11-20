@@ -40,15 +40,15 @@ function EsqueciSenhaPage() {
     }
     return (
         <>
-            <div class="titulo-esqueciSenha">
+            <div className="titulo-esqueciSenha">
                 <h1>Enviaremos um email de redefinição de senha</h1>
             </div>
             <Alert style={{ height: "60px" }} show={alertMessaage.alertView} variant={alertMessaage.color} onClose={() => setAlertMessage({ ...alertMessaage, alertView: false })} dismissible>
                 <Alert.Heading>{alertMessaage.text}</Alert.Heading>
             </Alert>
-            <main class="container">
-                <div class="input-esqueciSenha">
-                    <form class="row g-3 needs-validation" style={{ justifyContent: "center" }} novalidate>
+            <main className="container">
+                <div className="input-esqueciSenha">
+                    <form className="row g-3 needs-validation" style={{ justifyContent: "center" }} novalidate>
                         <InputFormCadastro onChangeValue={(event) => {
                             event.preventDefault();
                             setEmail(event.target.value);
@@ -62,8 +62,8 @@ function EsqueciSenhaPage() {
                             inputType={"text"}
                             inputSize={"8"} />
 
-                        <div class="col-md-8">
-                            <button class="btn btn-primary" onClick={(event) => { formSubmit(event) }}>Enviar</button>
+                        <div className="col-md-8">
+                            <button className="btn btn-primary" onClick={(event) => { formSubmit(event) }}>Enviar</button>
                         </div>
 
                     </form>

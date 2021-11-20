@@ -18,18 +18,34 @@ public class Cesta {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne()
 	private Cliente cliente = new Cliente();
-	@OneToMany(mappedBy = "cesta", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "cesta", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private List<ProdutosDaCesta> produtos = new ArrayList<ProdutosDaCesta>();
-	private BigDecimal valorTotal;
+	private BigDecimal valorTotal = new BigDecimal("0");
 	
 	public Cesta() {
+	}
+	
+	public Cesta(Cliente cliente) {
+		this.cliente = cliente;
 	}
 	
 	public void addProdutos(ProdutosDaCesta produto) {
 		produto.setCesta(this);
 		this.produtos.add(produto);
+	}
+	
+	public void addValor(BigDecimal valor) {
+		this.valorTotal = this.valorTotal.add(valor);
+	}
+	
+	public void setValorTotal(BigDecimal valorTotal) {
+		this.valorTotal = valorTotal;
+	}
+
+	public void setProdutos(List<ProdutosDaCesta> produtos) {
+		this.produtos = produtos;
 	}
 
 	public Cesta(Cliente cliente, List<ProdutosDaCesta> produtos, BigDecimal valorTotal) {

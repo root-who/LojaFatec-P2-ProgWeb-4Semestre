@@ -31,9 +31,7 @@
     font-size: 18px;
 }
 
-.btn-adicionar{
-    margin-top: 1rem;
-}
+
 
 .informacoes__container{
     flex-direction: column;
@@ -125,8 +123,8 @@
         width: 100%;
         flex-direction: row;
         flex-wrap: wrap;
-        justify-content: flex-end;
-        align-items: flex-start;
+        justify-content: space-between;
+        align-items: center;
     }
 
     .produto__descritivo{
@@ -140,4 +138,21 @@
         width: 100%;
         flex-grow: 0;
     }
+}
+
+@media  screen and (max-width: 470px){
+    .produto__informacoes{
+        justify-content: flex-end;
+    }
+
+    .btn-adicionar{
+        margin-right: 2.5rem;
+    }
+}
+
+@media  screen and (max-width: 360px){
+
+    .btn-adicionar{
+            margin-right: 2rem;
+        }
 }
