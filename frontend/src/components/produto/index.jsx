@@ -1,14 +1,14 @@
 import React from "react";
-import {useNavigate} from 'react-router-dom'
+import {useHistory} from 'react-router-dom'
 
 function Produto({value}) {
 
-    const redirect = useNavigate(); 
+    const redirect = useHistory(); 
 
     function irParaDetalhes(event){
         event.preventDefault();
         localStorage.setItem('produto-detalhe', JSON.stringify(value));
-        redirect("/detalheproduto");
+        redirect.push("/detalheproduto");
     }
 
 

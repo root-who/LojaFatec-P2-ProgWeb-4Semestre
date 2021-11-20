@@ -1,6 +1,5 @@
-import {Route, BrowserRouter, Routes} from 'react-router-dom';
+import {Route, BrowserRouter, Switch} from 'react-router-dom';
 import CadastroPage from './pages/cadastro';
-
 import * as React from 'react'
 import VitrinePage from './pages/vitrine';
 import LoginPage from './pages/login';
@@ -21,31 +20,31 @@ const RoutesApp = ()=> {
         <>
         <HeaderComponent />
         <BrowserRouter>
-            <Routes>
+            <Switch>
                 <Route exact path="/" element={
                                         <VitrinePage/>
                                         }/>
 
-                <Route  path="/cadastro" element={
+                <Route exact path="/cadastro" element={
                         <CadastroPage/>
                         }/>
 
-                <Route path="/login" element={
+                <Route exact path="/login" element={
                                             <LoginPage/>
                                             }/>
 
-                <Route path="/detalheproduto" element={
+                <Route exact path="/detalheproduto" element={
                                             <DetalheProduto/>
                                             }/>
 
-                <Route  path="/cesta" element={
+                <Route exact path="/cesta" element={
                                             <CestaPage/>
                                             }/>
 
-                <Route  path="/esqueci-senha" element={
+                <Route exact path="/esqueci-senha" element={
                                                     <EsqueciSenhaPage/>
                                                     }/>
-            </Routes>
+            </Switch>
         </BrowserRouter>
         <FooterComponent/>
         </>
