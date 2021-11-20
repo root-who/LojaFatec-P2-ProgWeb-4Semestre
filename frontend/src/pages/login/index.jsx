@@ -67,13 +67,13 @@ function LoginPage() {
 
     return (
         <>
-            <section class="conteudoAutentica">
-                <div class="cadastrado">
+            <section className="conteudoAutentica">
+                <div className="cadastrado">
                     <h1>Já Tenho cadastro</h1>
                     <Alert style={{ height: "60px" }} show={alertMessaage.alertView} variant={alertMessaage.color} onClose={() => setAlertMessage({ ...alertMessaage, alertView: false })} dismissible>
                         <Alert.Heading>{alertMessaage.text}</Alert.Heading>
                     </Alert>
-                    <form class="row g-3 needs-validation" style={{ justifyContent: "flex-start" }} novalidate>
+                    <form className="row g-3 needs-validation" style={{ justifyContent: "flex-start" }} noValidate>
                         <InputFormCadastro onChangeValue={(event) => {
                             event.preventDefault();
                             setEmail(event.target.value);
@@ -99,21 +99,21 @@ function LoginPage() {
                             errorMessage={errors.senha.message}
                             inputType={"password"}
                             inputSize={"8"} />
-                        <div class="col-12">
-                            <button class="btn btn-primary" onClick={(event) => { formSubmit(event) }}>Logar</button>
+                        <div className="col-12">
+                            <button className="btn btn-primary" onClick={(event) => { formSubmit(event) }}>Logar</button>
                         </div>
                         <div style={{ visibility: request ? "visible" : "hidden", margin: request ? "1.5rem 0 0 0" : "0 0", display: request ? "block" : "none" }}>
                             <CircularProgress color="primary" />
                         </div>
-                        <div class="col-12">
-                            <a href="/esqueci-senha" class="btn btn-secondary">Esqueci a senha</a>
+                        <div className="col-12">
+                            <a href="/esqueci-senha" className="btn btn-secondary">Esqueci a senha</a>
                         </div>
 
                     </form>
                 </div>
-                <div class="naoCadastrado">
+                <div className="naoCadastrado">
                     <h1>Ainda não tenho Cadastro</h1>
-                    <a href="/cadastro" class="btn btn-secondary">Clique aqui</a>
+                    <a href="/cadastro" className="btn btn-secondary">Clique aqui</a>
                 </div>
 
             </section>
