@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect } from "react";
-import { useNavigate } from "react-router";
+import { useHistory } from "react-router-dom";
 import '../../assets/css/detalhe/detalhe.css'
 import BotaoQuantidade from "../../components/botaoQuantidade";
 import API_URL from "../../util/API/apiRequest";
@@ -15,13 +15,13 @@ function DetalheProduto() {
         quantidade:1
     });
 
-    const redirect = useNavigate(); 
+    const redirect = useHistory();  
 
     useEffect(()=>{
         if(JSON.parse(localStorage.getItem('produto-detalhe')) !== null){
             setProduto({...produto, ...JSON.parse(localStorage.getItem('produto-detalhe'))})
         }else{
-            redirect("/");
+            redirect.push("/");
         }
 
         

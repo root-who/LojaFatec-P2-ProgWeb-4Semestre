@@ -21,29 +21,17 @@ const RoutesApp = ()=> {
         <HeaderComponent />
         <BrowserRouter>
             <Switch>
-                <Route exact path="/" element={
-                                        <VitrinePage/>
-                                        }/>
+                <Route exact={true} path="/"><VitrinePage/></Route>
 
-                <Route exact path="/cadastro" element={
-                        <CadastroPage/>
-                        }/>
+                <Route  path="/cadastro"  ><CadastroPage/></Route>
 
-                <Route exact path="/login" element={
-                                            <LoginPage/>
-                                            }/>
+                <Route  path="/login" ><LoginPage/></Route>
 
-                <Route exact path="/detalheproduto" element={
-                                            <DetalheProduto/>
-                                            }/>
+                <Route  path="/detalheproduto" ><DetalheProduto/></Route>
 
-                <Route exact path="/cesta" element={
-                                            <CestaPage/>
-                                            }/>
+                <Route  path="/cesta" ><CestaPage/></Route>
 
-                <Route exact path="/esqueci-senha" element={
-                                                    <EsqueciSenhaPage/>
-                                                    }/>
+                <Route  path="/esqueci-senha" ><EsqueciSenhaPage/></Route>
             </Switch>
         </BrowserRouter>
         <FooterComponent/>
