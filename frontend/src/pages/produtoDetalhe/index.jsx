@@ -40,7 +40,7 @@ function DetalheProduto() {
     function adicionarNaCesta(event){
         event.preventDefault();
         if(JSON.parse(localStorage.getItem('user'))===null){
-             redirect("/login");
+             redirect.push("/login");
         }else{
             axios.request({
                 method: "POST",
