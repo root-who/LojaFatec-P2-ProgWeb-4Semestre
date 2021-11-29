@@ -10,6 +10,6 @@ import com.br.fatec.lojaFatec.entitys.Produto;
 @Repository
 public interface ProdutoRepository extends JpaRepository<Produto, Long>{
 
-	
-	List<Produto> findByTituloContaining(String titulo);
+
+	List<Produto> findByTituloContainingIgnoreCase(String titulo);
 }

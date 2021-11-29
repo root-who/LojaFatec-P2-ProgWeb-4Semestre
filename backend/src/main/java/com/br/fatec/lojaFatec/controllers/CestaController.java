@@ -1,7 +1,7 @@
 package com.br.fatec.lojaFatec.controllers;
 
 
-import java.beans.Transient;
+
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
@@ -11,7 +11,6 @@ import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,7 +20,6 @@ import com.br.fatec.lojaFatec.DTOs.AdicionaProdutoDTO;
 import com.br.fatec.lojaFatec.DTOs.CestaDTO;
 import com.br.fatec.lojaFatec.DTOs.ProdutosDaCestaDTO;
 import com.br.fatec.lojaFatec.entitys.Cesta;
-import com.br.fatec.lojaFatec.entitys.Produto;
 import com.br.fatec.lojaFatec.entitys.ProdutosDaCesta;
 import com.br.fatec.lojaFatec.service.CestaService;
 

@@ -24,7 +24,7 @@ public class ProdutoService {
 	}
 	
 	public List<Produto> findByTitulo(String titulo) {
-		List<Produto> produtos = repository.findByTituloContaining(titulo);
+		List<Produto> produtos = repository.findByTituloContainingIgnoreCase(titulo);
 		return produtos;
 	}
 	

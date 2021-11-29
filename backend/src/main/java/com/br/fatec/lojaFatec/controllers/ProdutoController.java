@@ -31,14 +31,15 @@ public class ProdutoController {
 	
 	@PostMapping("/busca-pelo-titulo")
 	public ResponseEntity<List<Produto>> buscaPeloTitulo(@RequestBody BuscaProdutoDTO produto){
+		
 		if(produto.getTitulo().isBlank() || produto.getTitulo().isEmpty()) {
 			return ResponseEntity.notFound().build();
 		}
+		
 		List<Produto> produtos = service.findByTitulo(produto.getTitulo());
 		if(produtos.isEmpty()) {
 			return ResponseEntity.notFound().build();
 		}
-		produtos.forEach(c-> System.out.println(c.getTitulo()));
 		return ResponseEntity.ok(produtos);
 	}
 	

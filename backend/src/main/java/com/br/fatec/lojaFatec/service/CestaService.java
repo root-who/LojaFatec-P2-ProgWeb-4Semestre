@@ -2,7 +2,6 @@ package com.br.fatec.lojaFatec.service;
 
 
 import java.beans.Transient;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

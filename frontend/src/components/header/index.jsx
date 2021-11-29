@@ -15,7 +15,7 @@ function HeaderComponent({redirect}) {
 
 
     const redirection = useHistory();
-    let location = useLocation(); 
+    const location = useLocation(); 
     useEffect(()=>{
 
     },[])
