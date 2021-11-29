@@ -20,6 +20,11 @@ function HeaderComponent({redirect}) {
 
     },[])
 
+    function itsBuscaPage(){
+        if(location.pathname === "/busca") window.location.reload();
+        else redirection.push("/busca");
+    }
+
     function onButtonClicked(event){
         event.preventDefault();
         localStorage.setItem('palavraBuscada', busca)
@@ -32,19 +37,14 @@ function HeaderComponent({redirect}) {
         }).then((response)=>{
             if(response.status === 200){
                 localStorage.setItem('busca', JSON.stringify(response.data))
-                if(location.pathname === "/busca") window.location.reload();
-                else redirection.push("/busca");
-                
-                //window.location.href = "/busca";
+                itsBuscaPage()
             }else {
                 localStorage.removeItem('busca');
-                redirection.push("/busca");
-                //window.location.href = "/busca";
+                itsBuscaPage()
             }
         }).catch((response)=>{
             localStorage.removeItem('busca');
-            redirection.push("/busca");
-            //window.location.href = "/busca";
+            itsBuscaPage()
         })   
     }
 
