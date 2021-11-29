@@ -41,6 +41,7 @@ function LoginPage() {
                     "email": email,
                 }
             }).then((response) => {
+                setRequest(false);
                 setAlertMessage({
                     ...alertMessaage,
                     text: response.data.erro.errorText,
@@ -48,7 +49,7 @@ function LoginPage() {
                     hasError: response.data.erro.hasError,
                     alertView: true
                 })
-                if(response.status !== 200 || response.status !== 400){
+                if(response.status !== 200){
                     setAlertMessage({
                         ...alertMessaage,
                         text: "Erro na conexão tente novamente mais tarde!",
@@ -56,11 +57,12 @@ function LoginPage() {
                         alertView: true
                     })
                 }
-                if (!alertMessaage.hasError) {
-                    console.log(response.data)
+                if (!response.data.erro.hasError) {                
                     setUser({ ...user, nome: response.data.cliente.nome, id: response.data.cliente.id })
                     localStorage.setItem('user', JSON.stringify({ nome: response.data.cliente.nome, id: response.data.cliente.id, cestaId: response.data.cestaId }));
                 }
+            }).catch((response)=>{
+                console.log(response)
             })
         }
     }

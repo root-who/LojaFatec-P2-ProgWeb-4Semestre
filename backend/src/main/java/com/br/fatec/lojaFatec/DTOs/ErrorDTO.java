@@ -22,7 +22,7 @@ public class ErrorDTO {
 	}
 
 
-	public boolean isHasError() {
+	public boolean getHasError() {
 		return hasError;
 	}
 

@@ -28,7 +28,6 @@ public class ClienteController {
 	@PostMapping("/login")
 	public ResponseEntity<ClienteLoginDTO> autenticar(@RequestBody Cliente cliente){
 		ClienteLoginDTO clienteLog  = service.autenticaCliente(cliente);
-		
 		return ResponseEntity.ok(clienteLog);
 	}
 	

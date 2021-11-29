@@ -18,23 +18,23 @@ const RoutesApp = ()=> {
     
     return(
         <>
-        <HeaderComponent />
         <BrowserRouter>
+            <HeaderComponent />
             <Switch>
                 <Route exact={true} path="/"><VitrinePage/></Route>
 
-                <Route  path="/cadastro"  ><CadastroPage/></Route>
+                <Route  path="/cadastro"><CadastroPage/></Route>
 
-                <Route  path="/login" ><LoginPage/></Route>
+                <Route  path="/login"><LoginPage/></Route>
 
-                <Route  path="/detalheproduto" ><DetalheProduto/></Route>
+                <Route  path="/detalheproduto"><DetalheProduto/></Route>
 
-                <Route  path="/cesta" ><CestaPage/></Route>
+                <Route  path="/cesta"><CestaPage/></Route>
 
-                <Route  path="/esqueci-senha" ><EsqueciSenhaPage/></Route>
+                <Route  path="/esqueci-senha"><EsqueciSenhaPage/></Route>
             </Switch>
-        </BrowserRouter>
-        <FooterComponent/>
+            <FooterComponent/>
+        </BrowserRouter>       
         </>
     )
 

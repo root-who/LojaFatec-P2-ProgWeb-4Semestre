@@ -47,7 +47,7 @@ function CestaPage() {
 
 
     React.useEffect(()=>{
-        if(JSON.parse(localStorage.getItem('cesta')) === null){
+        if(JSON.parse(localStorage.getItem('cesta')) === null && localStorage.getItem('user') !== null){
             axios.request({
                 method:"POST",
                 url: API_URL+"/cesta/lista-cesta",
