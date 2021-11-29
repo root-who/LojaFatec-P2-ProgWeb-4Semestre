@@ -6,8 +6,8 @@ import LoginPage from './pages/login';
 import DetalheProduto from './pages/produtoDetalhe';
 import CestaPage from './pages/cesta';
 import EsqueciSenhaPage from './pages/esqueciSenha';
-import HeaderComponent from './components/header';
-import FooterComponent from './components/footer';
+// import HeaderComponent from './components/header';
+// import FooterComponent from './components/footer';
 
 
 
