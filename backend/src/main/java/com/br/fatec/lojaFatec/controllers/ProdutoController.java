@@ -7,9 +7,12 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.br.fatec.lojaFatec.DTOs.BuscaProdutoDTO;
 import com.br.fatec.lojaFatec.entitys.Produto;
 import com.br.fatec.lojaFatec.service.ProdutoService;
 
@@ -24,6 +27,19 @@ public class ProdutoController {
 	@GetMapping("/todos")
 	public ResponseEntity<List<Produto>> listarTodos(){
 		return ResponseEntity.ok(service.todosProdutos());
+	}
+	
+	@PostMapping("/busca-pelo-titulo")
+	public ResponseEntity<List<Produto>> buscaPeloTitulo(@RequestBody BuscaProdutoDTO produto){
+		if(produto.getTitulo().isBlank() || produto.getTitulo().isEmpty()) {
+			return ResponseEntity.notFound().build();
+		}
+		List<Produto> produtos = service.findByTitulo(produto.getTitulo());
+		if(produtos.isEmpty()) {
+			return ResponseEntity.notFound().build();
+		}
+
+		return ResponseEntity.ok(produtos);
 	}
 	
 	@GetMapping("/adicionar")

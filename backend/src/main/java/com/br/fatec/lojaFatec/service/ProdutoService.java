@@ -23,5 +23,9 @@ public class ProdutoService {
 		return repository.findAll();		
 	}
 	
+	public List<Produto> findByTitulo(String titulo) {
+		List<Produto> produtos = repository.findByTituloContaining(titulo);
+		return produtos;
+	}
 	
 }
