@@ -19,7 +19,7 @@ const RoutesApp = ()=> {
     return(
         <>
         <BrowserRouter>
-            <HeaderComponent />
+            {/* <HeaderComponent /> */}
             <Switch>
                 <Route exact={true} path="/"><VitrinePage/></Route>
 
@@ -33,7 +33,7 @@ const RoutesApp = ()=> {
 
                 <Route  path="/esqueci-senha"><EsqueciSenhaPage/></Route>
             </Switch>
-            <FooterComponent/>
+            {/* <FooterComponent/> */}
         </BrowserRouter>       
         </>
     )
