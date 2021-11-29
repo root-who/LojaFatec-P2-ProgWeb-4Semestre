@@ -38,7 +38,7 @@ public class ProdutoController {
 		if(produtos.isEmpty()) {
 			return ResponseEntity.notFound().build();
 		}
-
+		produtos.forEach(c-> System.out.println(c.getTitulo()));
 		return ResponseEntity.ok(produtos);
 	}
 	

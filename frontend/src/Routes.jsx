@@ -8,6 +8,7 @@ import CestaPage from './pages/cesta';
 import EsqueciSenhaPage from './pages/esqueciSenha';
 import HeaderComponent from './components/header';
 import FooterComponent from './components/footer';
+import BuscaPage from './pages/busca';
 
 
 
@@ -18,6 +19,7 @@ const RoutesApp = ()=> {
     
     return(
         <>
+        
         <BrowserRouter>
             <HeaderComponent />
             <Switch>
@@ -32,6 +34,8 @@ const RoutesApp = ()=> {
                 <Route  path="/cesta"><CestaPage/></Route>
 
                 <Route  path="/esqueci-senha"><EsqueciSenhaPage/></Route>
+
+                <Route  path="/busca" ><BuscaPage/></Route>
             </Switch>
             <FooterComponent/>
         </BrowserRouter>       
