@@ -15,12 +15,17 @@ function CestaPage() {
     // eslint-disable-next-line no-unused-vars
     const [valoresBody, setValoresBody] = React.useState([])
 
+    function getUser(){
+        return JSON.parse(localStorage.getItem('user'))
+    }
+
     function limparCesta(event){
+        const user = getUser();
         axios.request({
                 method:"POST",
                 url: API_URL+"/cesta/apagar-cesta",
                 data:{
-                    "idCesta": JSON.parse(localStorage.getItem('user')).cestaId
+                    "idCesta": user !== null ? user.cestaId : "" 
                 }
             }).then((response)=>{
                     setValoresBody([]);
@@ -31,11 +36,12 @@ function CestaPage() {
     }
 
     function atualizaCarrinho(){
+        const user = getUser();
         axios.request({
                 method:"POST",
                 url: API_URL+"/cesta/lista-cesta",
                 data:{
-                    "idCesta": JSON.parse(localStorage.getItem('user')).cestaId
+                    "idCesta": user !== null ? user.cestaId : ""
                 }
             }).then((response)=>{
                 setValoresBody(response.data)
